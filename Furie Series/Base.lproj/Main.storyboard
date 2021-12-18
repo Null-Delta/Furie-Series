@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Furie_Series" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +704,49 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Furie_Series" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ebf-ma-nua">
+                                <rect key="frame" x="13" y="13" width="91" height="32"/>
+                                <buttonCell key="cell" type="push" title="Calculate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RVf-Ka-bxO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yo3-jJ-wJS">
+                                <rect key="frame" x="105" y="20" width="96" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="Qjs-yT-tar"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="wrb-20-EW9">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="0Uw-Bp-n1h" customClass="FuncView" customModule="Furie_Series" customModuleProvider="target">
+                                <rect key="frame" x="20" y="49" width="440" height="221"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0Uw-Bp-n1h" secondAttribute="trailing" constant="20" symbolic="YES" id="M7r-Qy-j0A"/>
+                            <constraint firstItem="ebf-ma-nua" firstAttribute="baseline" secondItem="Yo3-jJ-wJS" secondAttribute="baseline" id="VFv-O2-jgY"/>
+                            <constraint firstItem="Yo3-jJ-wJS" firstAttribute="leading" secondItem="ebf-ma-nua" secondAttribute="trailing" constant="8" symbolic="YES" id="XHa-UU-Sge"/>
+                            <constraint firstItem="0Uw-Bp-n1h" firstAttribute="leading" secondItem="ebf-ma-nua" secondAttribute="leading" id="ZDa-qp-Qjs"/>
+                            <constraint firstAttribute="bottom" secondItem="0Uw-Bp-n1h" secondAttribute="bottom" constant="49" id="cBB-hF-DAh"/>
+                            <constraint firstItem="0Uw-Bp-n1h" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="hQ5-01-F9o"/>
+                            <constraint firstItem="Yo3-jJ-wJS" firstAttribute="top" secondItem="0Uw-Bp-n1h" secondAttribute="bottom" constant="8" symbolic="YES" id="uzs-qr-nON"/>
+                            <constraint firstItem="0Uw-Bp-n1h" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="xC0-cR-z3J"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="RVf-Ka-bxO" id="SxV-xk-PuT"/>
+                        <outlet property="field" destination="Yo3-jJ-wJS" id="cUu-13-bYG"/>
+                        <outlet property="funcView" destination="0Uw-Bp-n1h" id="F36-Hr-ePG"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
