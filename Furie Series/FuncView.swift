@@ -14,7 +14,6 @@ class FuncView: NSView {
     private var lastPoint: CGPoint = .zero
     private var drawFurie: Bool = false
 
-    
     override var bounds: NSRect {
         didSet {
             values = [CGPoint].init(repeating: .zero, count: Int(bounds.width))
@@ -57,7 +56,7 @@ class FuncView: NSView {
     var integral: CGFloat {
         get {
             var sum: CGFloat = 0
-            let delta = 3.1428 * 2 / (bounds.width)
+            let delta = 3.1428 / (bounds.width)
             
             for j in 0..<values.count {
                 sum += values[j].y * delta
@@ -146,21 +145,11 @@ class FuncView: NSView {
 
         context.strokePath()
         
-        
         if drawFurie {
-            var max = 0.0
-            values.forEach({p in
-                max = (p.y > max) ? p.y : max
-            })
-            print(values)
-            print("a")
-            print(max)
-            context.translateBy(x: 0, y:  +offset)
             context.setStrokeColor(NSColor.red.cgColor)
             context.move(to: furieValues.first!)
             context.addLines(between: furieValues)
             context.strokePath()
-            context.translateBy(x: 0, y: -offset)
         }
     }
 }
